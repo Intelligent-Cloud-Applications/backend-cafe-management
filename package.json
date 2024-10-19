@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1618.0",
+    "dotenv": "^16.4.5",
+    "serverless": "^3.33.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.4",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-esbuild": "^1.52.1",
+    "serverless-plugin-common-excludes": "^4.0.0",
+    "serverless-plugin-include-dependencies": "^5.1.0",
+    "serverless-plugin-split-stacks": "^1.13.0"
+  }
+}
