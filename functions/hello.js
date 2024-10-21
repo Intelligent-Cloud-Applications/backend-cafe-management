@@ -5,7 +5,7 @@ module.exports.main = async (event) => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: `Hello, ${ data ? data.name : 'World' }!`,
+        message: `Hello, ${ data.name }!`,
         input: event,
       },
       null,

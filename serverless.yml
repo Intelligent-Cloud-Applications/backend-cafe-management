@@ -20,16 +20,17 @@ provider:
   runtime: nodejs16.x
   stage: ${opt:stage, 'dev'}
   region: ${self:custom.region.${self:provider.stage}}
-  # environment:
-  #   TABLE_NAME: ${env:TABLE_NAME}
+  environment:
+    ITEM_TABLE_NAME: 'cafe-items-${self:provider.stage}'
+    CATEGORY_TABLE_NAME: 'cafe-categories-${self:provider.stage}'
 
-#  iam:
-#    role:
-#      statements:
-#        - Effect: Allow
-#          Action:
-#            - 'dynamodb:*'
-#          Resource: '*'
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - 'dynamodb:*'
+          Resource: '*'
 
 custom:
   region:
