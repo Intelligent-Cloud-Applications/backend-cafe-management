@@ -23,6 +23,7 @@ provider:
   environment:
     ITEM_TABLE_NAME: 'cafe-items-${self:provider.stage}'
     CATEGORY_TABLE_NAME: 'cafe-categories-${self:provider.stage}'
+    USER_TABLE_NAME: 'cafe-users-${self:provider.stage}'
 
   iam:
     role:
@@ -30,6 +31,7 @@ provider:
         - Effect: Allow
           Action:
             - 'dynamodb:*'
+            - 'cognito-idp:AdminGetUser'
           Resource: '*'
 
 custom:
@@ -52,3 +54,12 @@ functions:
           path: hello
           method: post
           cors: true
+
+  getUserdata:
+    handler: functions/user/get-userdata.main
+    events:
+      - http:
+          path: user/get-userdata/{institution}
+          method: get
+          cors: true
+          authorizer: aws_iam
